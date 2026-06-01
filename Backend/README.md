@@ -4,7 +4,7 @@ The backend server is a robust Node.js Express REST API that handles user authen
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 * **Runtime**: Node.js (ES Modules, `"type": "module"`)
 * **Framework**: Express.js
 * **Database**: MongoDB (via Mongoose ODM)
@@ -13,7 +13,7 @@ The backend server is a robust Node.js Express REST API that handles user authen
 
 ---
 
-## 🔑 Environment Configurations
+##  Environment Configurations
 
 Create a `.env` file in the `Backend` directory containing:
 
@@ -31,7 +31,7 @@ API_SECRET=your_cloudinary_api_secret
 
 ---
 
-## 💾 Database Schemas & Schema Models
+##  Database Schemas & Schema Models
 
 ### 1. `User`
 Manages account registration, secure hashed passwords (using `bcryptjs`), and session controls.
@@ -73,7 +73,7 @@ Links a resume to a specific job description. Calculates the match index, keywor
 
 ---
 
-## ⚙️ Background Queue Processing
+##  Background Queue Processing
 The server runs an asynchronous interval worker (`startQueueWorker`) inside a background thread loop. The worker:
 1. Polls for `pending` jobs inside the MongoDB `JobQueue` collection.
 2. Marks the job as `processing`.
