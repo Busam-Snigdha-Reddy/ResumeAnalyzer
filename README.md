@@ -4,7 +4,7 @@ An advanced, premium ATS Resume Analyzer built with the MERN stack (MongoDB, Exp
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 The project is split into two main directory workspaces:
 
 1. **[Backend Server](./Backend/README.md)**: A Node.js Express API linked to MongoDB, managing file uploads with Multer, hosting resume document assets securely on Cloudinary, running text parsing engines (PDF & Word), and managing an asynchronous background job processing queue.
@@ -12,7 +12,7 @@ The project is split into two main directory workspaces:
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 * **Visual Coordinate Canvas**: Renders uploaded PDF pages directly inside the browser using PDF.js. Stored feedback suggestions are mapped to exact layout coordinates and highlighted dynamically.
 * **Role Tailoring Gap Engine**: Upload your resume and paste any target job description. The backend processes the differences and returns matched skills, missing skills, and granular bullet-point instructions.
@@ -21,9 +21,9 @@ The project is split into two main directory workspaces:
 
 ---
 
-## 🛠️ Quick Start
+##  Quick Start
 
-### 📋 Prerequisites
+###  Prerequisites
 * Node.js (v18+)
 * MongoDB connection string
 * Cloudinary account credentials
@@ -59,5 +59,5 @@ The project is split into two main directory workspaces:
 
 ---
 
-## 🔒 Security Notice
+## Security Notice
 All credentials, database connection strings, and Cloudinary keys are loaded securely through `.env` configurations and are ignored by version control to protect the production environments.
