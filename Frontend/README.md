@@ -4,7 +4,7 @@ A responsive React single page application built on Vite, styled with sleek dark
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 * **Bundler/Build Engine**: Vite (React)
 * **Icons**: `lucide-react`
 * **HTTP Requests**: `axios` (configured with central base instances and JWT authorization interceptors)
@@ -13,7 +13,7 @@ A responsive React single page application built on Vite, styled with sleek dark
 
 ---
 
-## 🎨 Interactive Canvas Overlay (`ResumeCanvasOverlay`)
+##  Interactive Canvas Overlay (`ResumeCanvasOverlay`)
 The interface features a custom interactive rendering overlay:
 1. **Dynamic Renders**: Downloaded PDFs are rendered directly inside HTML `<canvas>` elements using PDF.js at High-DPI scale (1.5x).
 2. **Text Layer Extraction**: The component extracts coordinate layout boxes (`tx`, `ty`, `width`, `height`) for all parsed lines.
@@ -23,7 +23,7 @@ The interface features a custom interactive rendering overlay:
 
 ---
 
-## 📂 Navigation & View Pages
+##  Navigation & View Pages
 
 ### 1. Welcome Landing (`Landing.jsx`)
 Features a dark theme banner, gradient hero typography, quick CTA controls to register/login, and interactive glassmorphic feature grids.
@@ -42,7 +42,7 @@ Splits the layout into the visual canvas overlay on the left and a tabbed contro
 
 ---
 
-## 💎 Custom Styles Design System (`src/index.css`)
+##  Custom Styles Design System (`src/index.css`)
 To keep the application highly responsive without Tailwind bundler dependencies, the layout utilizes custom vanilla utility classes:
 * **Transitions**: Smooth HSL transforms on button interactions (`active:scale-[0.98]`, `hover:scale-[1.03]`).
 * **Gradients**: Modern linear gradients for active panels and call-to-actions (`bg-gradient-to-r.from-violet-600.to-indigo-600`).
