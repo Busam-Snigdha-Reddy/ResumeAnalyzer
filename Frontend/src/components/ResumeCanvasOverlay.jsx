@@ -28,7 +28,8 @@ export const ResumeCanvasOverlay = ({ resumeId, fileType, suggestions = [] }) =>
     setError(null);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/resumes/${resumeId}`, {
+      const apiPrefix = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiPrefix}/api/resumes/${resumeId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (!response.ok) throw new Error('Failed to fetch resume details');
@@ -48,7 +49,8 @@ export const ResumeCanvasOverlay = ({ resumeId, fileType, suggestions = [] }) =>
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/resumes/${resumeId}/file`, {
+      const apiPrefix = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiPrefix}/api/resumes/${resumeId}/file`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
