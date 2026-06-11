@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
+import api from '../services/api.js';
 
 // Set up worker path for PDF.js. We use CDN worker to avoid local bundle build issues.
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
@@ -27,16 +28,10 @@ export const ResumeCanvasOverlay = ({ resumeId, fileType, suggestions = [] }) =>
     setLoading(true);
     setError(null);
     try {
-      const token = localStorage.getItem('token');
-      const apiPrefix = import.meta.env.VITE_API_URL || '';
-      const response = await fetch(`${apiPrefix}/api/resumes/${resumeId}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      if (!response.ok) throw new Error('Failed to fetch resume details');
-      const data = await response.json();
-      setDocxText(data.rawText || '');
+      const response = await api.get(`/resumes/${resumeId}`);
+      setDocxText(response.data.rawText || '');
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.message);
     } finally {
       setLoading(false);
     }
@@ -48,15 +43,11 @@ export const ResumeCanvasOverlay = ({ resumeId, fileType, suggestions = [] }) =>
     setHighlights([]);
     
     try {
-      const token = localStorage.getItem('token');
-      const apiPrefix = import.meta.env.VITE_API_URL || '';
-      const response = await fetch(`${apiPrefix}/api/resumes/${resumeId}/file`, {
-        headers: { Authorization: `Bearer ${token}` }
+      const response = await api.get(`/resumes/${resumeId}/file`, {
+        responseType: 'arraybuffer'
       });
-
-      if (!response.ok) throw new Error('Failed to download PDF resume file');
       
-      const arrayBuffer = await response.arrayBuffer();
+      const arrayBuffer = response.data;
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
       const page = await pdf.getPage(1); // Render page 1 for analysis
 
